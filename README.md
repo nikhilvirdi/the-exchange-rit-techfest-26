@@ -1,3 +1,5 @@
-<h2 align="center"> Home of “The Exchange” (RIT CSE Tech Fest ‘26) </h2>
+### The Exchange: Build it, Break it
 
-<img width="1920"  alt="THE" src="https://github.com/user-attachments/assets/04df6a8f-4907-4ce4-8d9a-d7b741ada7ef" />
+Home of "The Exchange" (RIT CSE Tech Fest '26).
+
+A 2 phase coding event where teams build a small, cool, interactive project from scratch, then swap it with another team to break, fix, optimise and extend it.
