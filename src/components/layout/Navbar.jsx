@@ -10,6 +10,9 @@ export default function Navbar() {
         >
           THE EXCHANGE
         </Link>
+        <Link to="/event-details" className="ml-auto inline-flex min-h-[44px] items-center text-xl font-bold text-brand-white hover:opacity-90 sm:text-2xl">
+          Event Details
+        </Link>
       </nav>
     </header>
   )

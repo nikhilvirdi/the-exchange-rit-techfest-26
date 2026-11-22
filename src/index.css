@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Poster Handjet';
+  src: url('./assets/fonts/Handjet.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 @theme {
   --color-brand-blue: #2b24b6;
   --color-brand-lime: #a2f255;

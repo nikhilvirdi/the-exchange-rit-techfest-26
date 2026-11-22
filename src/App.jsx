@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout.jsx'
 import Home from './pages/Home.jsx'
+import EventDetails from './pages/EventDetails.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -8,6 +9,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/event-details" element={<EventDetails />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

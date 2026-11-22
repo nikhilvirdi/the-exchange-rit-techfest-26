@@ -1,0 +1,25 @@
+import HeroSection from '../components/home/HeroSection.jsx'
+import DetailsSection from '../components/home/DetailsSection.jsx'
+import TimelineSection from '../components/home/TimelineSection.jsx'
+import RegistrationSection from '../components/home/RegistrationSection.jsx'
+import JudgingSection from '../components/home/JudgingSection.jsx'
+import RulesSection from '../components/home/RulesSection.jsx'
+import PrizesSection from '../components/home/PrizesSection.jsx'
+import FaqSection from '../components/home/FaqSection.jsx'
+import FooterSection from '../components/home/FooterSection.jsx'
+
+export default function EventDetails() {
+  return (
+    <div>
+      <HeroSection />
+      <DetailsSection />
+      <TimelineSection />
+      <RegistrationSection />
+      <JudgingSection />
+      <RulesSection />
+      <PrizesSection />
+      <FaqSection />
+      <FooterSection />
+    </div>
+  )
+}

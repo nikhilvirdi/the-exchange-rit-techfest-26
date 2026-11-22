@@ -1,7 +1,16 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './Navbar.jsx'
 
 export default function Layout() {
+  const { pathname } = useLocation()
+  if (pathname === '/') {
+    return (
+      <main className="grid h-dvh grid-rows-1 place-items-center overflow-clip bg-brand-blue">
+        <Outlet />
+      </main>
+    )
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
