@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router-dom'
+import { matchPath, Outlet, useLocation } from 'react-router-dom'
 import Navbar from './Navbar.jsx'
 
 export default function Layout() {
@@ -13,7 +13,7 @@ export default function Layout() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar />
+      {!matchPath('/event-details', pathname) && <Navbar />}
       <main className="flex flex-1 flex-col">
         <Outlet />
       </main>

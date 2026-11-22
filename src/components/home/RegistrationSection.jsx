@@ -1,6 +1,6 @@
 export default function RegistrationSection() {
   return (
-    <section id="registration" className="w-full border-b-4 border-brand-lime">
+    <section id="registration" className="w-full">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <h2 className="text-2xl font-bold tracking-wider text-brand-lime uppercase sm:text-3xl md:text-4xl">
           Registration

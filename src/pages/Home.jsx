@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { HyperText } from '../components/ui/hyper-text.jsx'
 import sky from '../assets/decor/pixel_moon_mountains.svg'
 import heart from '../assets/decor/red_heart.svg'
@@ -20,7 +21,7 @@ function Art({ src, className }) {
   return <img alt="" draggable="false" src={src} className={`absolute h-auto max-w-none ${className}`} />
 }
 
-export default function Home() {
+function Poster() {
   return (
     <section aria-labelledby="poster-title" className="@container relative isolate aspect-video w-full overflow-hidden bg-brand-blue font-['Poster_Handjet'] font-bold leading-none [scale:1_min(1,calc(100dvh/56.25vw))]">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 select-none [image-rendering:pixelated]">
@@ -81,5 +82,22 @@ export default function Home() {
       </h1>
       <p className="absolute left-[16.45%] top-[62.3%] origin-top-left rotate-[-110deg] whitespace-nowrap text-[3.91cqw] text-white">CSE DEPARTMENT</p>
     </section>
+  )
+}
+
+export default function Home() {
+  return (
+    <div className="relative grid h-[min(56.25vw,100dvh)] w-full grid-rows-1 items-center">
+      <Poster />
+      <Link
+        to="/event-details"
+        className="group absolute top-[69%] right-2 z-50 inline-flex min-h-11 -translate-y-1/2 items-center gap-2 font-['Geologica',sans-serif] text-[0.9375rem] font-medium leading-tight text-brand-white text-shadow-md text-shadow-black/85 hover:text-brand-lime focus-visible:text-brand-lime focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-lime motion-safe:transition-colors sm:top-[61%] sm:right-8 sm:text-lg lg:top-[65%] lg:text-xl xl:text-2xl"
+      >
+        See Event Details
+        <span aria-hidden="true" className="motion-safe:transition-transform motion-safe:group-hover:translate-x-1">
+          →
+        </span>
+      </Link>
+    </div>
   )
 }
