@@ -1,6 +1,6 @@
 import HeroSection from '../components/home/HeroSection.jsx'
 import EventTimeline from '../components/EventTimeline.jsx'
-import RegistrationSection from '../components/home/RegistrationSection.jsx'
+import ProblemStatementsSection from '../components/home/ProblemStatementsSection.jsx'
 import JudgingSection from '../components/home/JudgingSection.jsx'
 import RulesSection from '../components/home/RulesSection.jsx'
 import PrizesSection from '../components/home/PrizesSection.jsx'
@@ -12,7 +12,7 @@ export default function EventDetails() {
     <div>
       <HeroSection />
       <EventTimeline />
-      <RegistrationSection />
+      <ProblemStatementsSection />
       <JudgingSection />
       <RulesSection />
       <PrizesSection />

@@ -14,7 +14,7 @@ export default function HeroSection() {
         </p>
         <div className="mt-4 grid w-full auto-rows-fr grid-cols-1 gap-4 sm:mt-6 sm:grid-cols-2 sm:gap-6 lg:mt-7 lg:gap-8">
           {/* Box 1: Build It */}
-          <div className="flex w-full flex-col items-center rounded-2xl border-2 border-dotted border-brand-lime bg-brand-white/10 p-4 sm:flex-row sm:items-center sm:p-5 md:p-6 gap-4 sm:gap-5">
+          <div className="flex w-full flex-col items-center rounded-2xl border-2 border-dotted border-brand-lime p-4 sm:flex-row sm:items-center sm:p-5 md:p-6 gap-4 sm:gap-5">
             <div className="flex w-full sm:w-[35%] shrink-0 items-center justify-center self-stretch [&>*]:!static [&>*]:!top-auto [&>*]:!right-auto">
               <BuildItSprite />
             </div>
@@ -28,13 +28,13 @@ export default function HeroSection() {
                 </span>
               </div>
               <p className="mt-2 font-['Geologica',sans-serif] text-xs leading-relaxed text-brand-white sm:mt-3 sm:text-sm md:text-base">
-                Get a mini, cool and creative problem statement and turn it into a working project in just 90 minutes. Use your skills, tools, and AI agents to bring your idea to life.
+                Get a fun, creative problem statement and turn it into a working project in just 90 minutes. Use your skills, creativity, and AI agents to build something functional, interactive, and visually impressive.
               </p>
             </div>
           </div>
 
           {/* Box 2: Break It */}
-          <div className="grid w-full grid-cols-[minmax(0,65fr)_minmax(0,35fr)] items-center gap-4 rounded-2xl border-2 border-dotted border-brand-lime bg-brand-white/10 p-4 sm:gap-5 sm:p-5 md:p-6">
+          <div className="grid w-full grid-cols-[minmax(0,65fr)_minmax(0,35fr)] items-center gap-4 rounded-2xl border-2 border-dotted border-brand-lime p-4 sm:gap-5 sm:p-5 md:p-6">
             <div>
               <div className="flex items-baseline gap-2 sm:gap-3">
                 <span className="text-3xl font-bold text-brand-lime sm:text-4xl md:text-5xl">
@@ -45,7 +45,7 @@ export default function HeroSection() {
                 </span>
               </div>
               <p className="mt-2 font-['Geologica',sans-serif] text-xs leading-relaxed text-brand-white sm:mt-3 sm:text-sm md:text-base">
-                Your code is now someone else&apos;s problem, and theirs is yours. Hunt down bugs, exploit edge cases, patch broken logic, and turn their creation into something better.
+                Your code is now someone else&apos;s problem, and theirs is yours. Hunt down bugs, uncover missing features, fix broken logic, and refine what you inherit. Then take it further with creative additions of your own.
               </p>
             </div>
             <div className="flex justify-center">
