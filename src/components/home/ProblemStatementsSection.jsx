@@ -1,5 +1,4 @@
 import { useId, useState } from 'react'
-import star from '../../assets/decor/golden_star.svg'
 import { problemTracks } from '../../data/problemStatements.js'
 
 function Disclosure({ title, description, children }) {
@@ -46,15 +45,9 @@ export default function ProblemStatementsSection() {
   return (
     <section id="problem-statements" aria-labelledby="problem-statements-heading" className="w-full">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <div className="flex items-center justify-between gap-4">
-          <h2 id="problem-statements-heading" className="text-2xl font-bold tracking-wider text-brand-lime uppercase sm:text-3xl md:text-4xl">
-            Problem Statements
-          </h2>
-          <span aria-hidden="true" className="pointer-events-none flex shrink-0 items-start gap-2 [image-rendering:pixelated]">
-            <img src={star} alt="" className="mt-2 size-4 sm:size-5" />
-            <img src={star} alt="" className="size-5 sm:size-7" />
-          </span>
-        </div>
+        <h2 id="problem-statements-heading" className="text-2xl font-bold tracking-wider text-brand-lime uppercase sm:text-3xl md:text-4xl">
+          Problem Statements
+        </h2>
         <div className="mt-6 divide-y divide-brand-white/20 border-y border-brand-white/20">
           {problemTracks.map(track => (
             <Disclosure key={track.title} title={track.title} description={track.description}>

@@ -13,9 +13,8 @@ export default function HeroSection() {
           WHAT YOU BUILD, WON&apos;T STAY YOURS
         </p>
         <div className="mt-4 grid w-full auto-rows-fr grid-cols-1 gap-4 sm:mt-6 sm:grid-cols-2 sm:gap-6 lg:mt-7 lg:gap-8">
-          {/* Box 1: Build It */}
-          <div className="flex w-full flex-col items-center rounded-2xl border-2 border-dotted border-brand-lime p-4 sm:flex-row sm:items-center sm:p-5 md:p-6 gap-4 sm:gap-5">
-            <div className="flex w-full sm:w-[35%] shrink-0 items-center justify-center self-stretch [&>*]:!static [&>*]:!top-auto [&>*]:!right-auto">
+          <div className="flex w-full flex-col items-center rounded-2xl border-2 border-dotted border-brand-lime p-4 sm:flex-row sm:p-5 md:p-6 gap-4 sm:gap-5">
+            <div className="flex w-full sm:w-[35%] shrink-0 items-center justify-center self-stretch">
               <BuildItSprite />
             </div>
             <div className="flex w-full sm:w-[65%] flex-col justify-center">
@@ -33,7 +32,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Box 2: Break It */}
           <div className="grid w-full grid-cols-[minmax(0,65fr)_minmax(0,35fr)] items-center gap-4 rounded-2xl border-2 border-dotted border-brand-lime p-4 sm:gap-5 sm:p-5 md:p-6">
             <div>
               <div className="flex items-baseline gap-2 sm:gap-3">

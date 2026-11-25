@@ -5,7 +5,6 @@ const rows = sprite.frameCount / sprite.columns
 const maxX = (sprite.columns - 1) * sprite.frameWidth
 const maxY = (rows - 1) * sprite.frameHeight
 
-// Used for both step-7 (1:00 PM) and step-8 (1:15 PM)
 export default function Sprite100AND115PM() {
   const { x, y } = useSpriteAnimation(sprite)
   return (
