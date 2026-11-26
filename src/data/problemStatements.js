@@ -1,3 +1,13 @@
+import marioMinecraft from '../assets/problem-statements/mario-minecraft.png'
+import spaceInvadersBreakout from '../assets/problem-statements/space-invaders-breakout.png'
+import pacmanBomberman from '../assets/problem-statements/pacman-bomberman.png'
+import sokobanPortal from '../assets/problem-statements/sokoban-portal.png'
+import pokemonSnake from '../assets/problem-statements/pokemon-snake.png'
+
+function illustration(src, alt) {
+  return src ? { src, alt } : undefined
+}
+
 export const problemTracks = [
   {
     "title": "Track I: Remix the Classic",
@@ -5,22 +15,27 @@ export const problemTracks = [
     "statements": [
       {
         "title": "Mario x Minecraft",
+        "illustration": illustration(marioMinecraft, "Mario jumps between brick platforms while a zombie approaches and a skeleton fires an arrow past a Creeper."),
         "description": "Imagine playing Super Mario, but instead of Goombas and Koopas, you're fighting Minecraft mobs! Build a 2D platformer where the player runs, jumps across platforms, and avoids obstacles to reach the flag at the end of the level. The twist is that the enemies are Minecraft creatures with their own behaviors. Creepers approach the player and explode when they get close, zombies chase the player, and skeletons shoot arrows from a distance. The player must survive these enemies, navigate the level, and reach the finish line. Make sure each enemy behaves differently so players have to think about how to avoid or defeat them."
       },
       {
         "title": "Space Invaders x Breakout",
+        "illustration": illustration(spaceInvadersBreakout, "A ball rebounds toward colorful rows of space invaders as their shots descend toward a paddle."),
         "description": "Imagine defending Earth from aliens, but someone took away your spaceship's guns and gave you a bouncing ball instead. Combine Space Invaders with the classic Breakout game. Players control a paddle at the bottom of the screen and use it to bounce a ball toward rows of invading aliens. The ball destroys aliens whenever it hits them, but the aliens don't just sit there. They gradually move downward and shoot projectiles toward the player. Players must keep the ball bouncing, aim it toward enemies, dodge incoming attacks, and destroy the alien invasion before it reaches the bottom of the screen."
       },
       {
         "title": "Pac-Man x Bomberman",
+        "illustration": illustration(pacmanBomberman, "Pac-Man sits beside a bomb in a blue maze as a cross-shaped explosion reaches a ghost."),
         "description": "What if Pac-Man could fight ghosts using bombs? Build a Pac-Man-style maze where the player moves through corridors, collects pellets, and avoids ghosts. But instead of only running away, the player can place bombs just like in Bomberman. Each bomb explodes after a short countdown and can destroy nearby ghosts or break certain walls in the maze. However, the explosions are dangerous to everyone, including the player! The challenge is to collect all the pellets while using bombs strategically to clear paths and escape enemies. Players need to time their explosions carefully so they don't accidentally trap or blow themselves up."
       },
       {
         "title": "Sokoban x Portal",
+        "illustration": illustration(sokobanPortal, "A player pushes a crate into a blue portal as a crate emerges from an orange portal in another room."),
         "description": "What happens when a classic box-pushing puzzle gets Portal-style teleportation? Build a small puzzle game where players must push boxes onto specific target tiles to complete each level. The player can move around the map and push boxes, but cannot pull them backward. Now add pairs of connected portals! Whenever a player or box enters one portal, it instantly appears at the other. Players must figure out how to use these portals to move boxes into the correct positions. Be careful, though. A wrong push could send a box into a corner, block a portal, or make the puzzle impossible to complete. The goal is to place every box on its target using clever movement and teleportation."
       },
       {
         "title": "Pokemon Snake",
+        "illustration": illustration(pokemonSnake, "A fire-type snake winds across a checkerboard toward a leaf, with water drops and flames on nearby tiles."),
         "description": "What if the classic Snake game followed Pokémon battle rules? Build a Snake game where the food isn't just something you eat to grow. Instead, every food item has an elemental type, such as Fire, Water, or Grass. Your snake also has an elemental type, and the familiar Pokémon-style type advantages decide what happens when you eat something. For example, a Fire-type snake grows when it eats Grass-type food but gets punished for eating Water-type food. Eating the wrong type might shrink your snake or even end the game. Players must survive, avoid crashing into walls or their own bodies, and choose the right food to grow as much as possible."
       }
     ]

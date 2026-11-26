@@ -91,7 +91,7 @@ export default function Home() {
       <Poster />
       <Link
         to="/event-details"
-        className="group absolute top-[69%] right-2 z-50 inline-flex min-h-11 -translate-y-1/2 items-center gap-2 font-['Geologica',sans-serif] text-[0.9375rem] font-medium leading-tight text-brand-white text-shadow-md text-shadow-black/85 hover:text-brand-lime focus-visible:text-brand-lime focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-lime motion-safe:transition-colors sm:top-[61%] sm:right-8 sm:text-lg lg:top-[65%] lg:text-xl xl:text-2xl"
+        className="group absolute top-[75%] right-2 z-50 inline-flex min-h-11 -translate-y-1/2 items-center gap-2 font-['Geologica',sans-serif] text-xs font-medium leading-tight text-brand-white text-shadow-md text-shadow-black/85 hover:text-brand-lime focus-visible:text-brand-lime focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-lime motion-safe:transition-colors sm:top-[61%] sm:right-8 sm:text-lg lg:top-[65%] lg:text-xl xl:text-2xl"
       >
         See Event Details
         <span aria-hidden="true" className="motion-safe:transition-transform motion-safe:group-hover:translate-x-1">

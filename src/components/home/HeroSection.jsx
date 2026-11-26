@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section id="hero" className="flex min-h-[calc(100vh-4rem)] w-full flex-col justify-center">
       <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-        <h1 className="text-6xl font-bold uppercase tracking-wide leading-none sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]">
+        <h1 className="text-6xl font-bold uppercase tracking-wide leading-none [overflow-wrap:anywhere] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]">
           <span className="block text-brand-lime">THE</span>
           <span className="block text-brand-white">EXCHANGE</span>
         </h1>

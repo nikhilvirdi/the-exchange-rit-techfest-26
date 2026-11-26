@@ -85,7 +85,7 @@ export default function FaqSection() {
         <h2 id="faq-heading" className="text-2xl font-bold tracking-wider text-brand-lime uppercase sm:text-3xl md:text-4xl">
           FAQ
         </h2>
-        <div className="mt-6 max-w-4xl divide-y divide-brand-white/20 border-y border-brand-white/20">
+        <div className="mt-6 divide-y divide-brand-white/20 border-y border-brand-white/20">
           {faqs.map(({ question, answer }, index) => (
             <FaqItem key={question} number={index + 1} question={question} answer={answer} />
           ))}

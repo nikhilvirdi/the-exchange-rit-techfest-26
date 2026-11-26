@@ -25,27 +25,27 @@ if (typeof window !== 'undefined') {
 }
 
 const eventTimelineData = [
-  { id: 'step-1', time: '9:00 AM', content: 'Event kick off' },
-  { id: 'step-2', time: '9:10 AM', content: 'Problem statements released' },
-  { id: 'step-3', time: '9:30 AM', content: 'Phase 01: Build It starts' },
-  { id: 'step-4', time: '11:00 AM', content: 'Teams submit their repo' },
-  { id: 'step-5', time: '11:05 AM', content: 'Break starts, coordinators swap the repos' },
-  { id: 'step-6', time: '11:30 AM', content: 'Phase 02: Break It kicks off' },
-  { id: 'step-7', time: '1:00 PM', content: 'Teams submit their findings and refined repo' },
-  { id: 'step-8', time: '1:15 PM', content: 'Event concludes' },
+  { id: 'step-1', time: '9:30 AM', content: 'Event kick off' },
+  { id: 'step-2', time: '9:40 AM', content: 'Problem statements released' },
+  { id: 'step-3', time: '10:00 AM', content: 'Phase 01: Build It starts' },
+  { id: 'step-4', time: '11:30 AM', content: 'Teams submit their repo' },
+  { id: 'step-5', time: '11:35 AM', content: 'Break starts, coordinators swap the repos' },
+  { id: 'step-6', time: '12:00 PM', content: 'Phase 02: Break It kicks off' },
+  { id: 'step-7', time: '1:30 PM', content: 'Teams submit their findings and refined repo' },
+  { id: 'step-8', time: '1:45 PM', content: 'Event concludes' },
   { id: 'step-9', time: '2:00 PM', content: 'Results are announced' },
 ]
 
 const stageSprites = {
-  'step-1': Sprite900AM,
-  'step-2': Sprite910AM,
-  'step-3': Sprite930AM,
-  'step-4': Sprite1100AM,
-  'step-5': Sprite1105AM,
-  'step-6': Sprite1130AM,
-  'step-7': Sprite100AND115PM,
-  'step-8': Sprite100AND115PM,
-  'step-9': Sprite200PM,
+  'step-1': { component: Sprite900AM, sheet: sheet900AM },
+  'step-2': { component: Sprite910AM, sheet: sheet910AM },
+  'step-3': { component: Sprite930AM, sheet: sheet930AM },
+  'step-4': { component: Sprite1100AM, sheet: sheet1100AM },
+  'step-5': { component: Sprite1105AM, sheet: sheet1105AM },
+  'step-6': { component: Sprite1130AM, sheet: sheet1130AM },
+  'step-7': { component: Sprite100AND115PM, sheet: sheet100AND115PM },
+  'step-8': { component: Sprite100AND115PM, sheet: sheet100AND115PM },
+  'step-9': { component: Sprite200PM, sheet: sheet200PM },
 }
 const lastSpriteIndex = eventTimelineData.findLastIndex(({ id }) => Boolean(stageSprites[id]))
 
@@ -56,16 +56,14 @@ export default function EventTimeline({ title = 'The Timeline', periodLabel = '2
   const lineRef = useRef(null)
   const spritePanelRef = useRef(null)
   const [spriteStage, setSpriteStage] = useState(null)
-  const StageSprite = stageSprites[spriteStage]
+  const StageSprite = stageSprites[spriteStage]?.component
+  const stageIndex = eventTimelineData.findIndex(({ id }) => id === spriteStage)
 
-  preload(sheet900AM, { as: 'image' })
-  preload(sheet910AM, { as: 'image' })
-  preload(sheet930AM, { as: 'image' })
-  preload(sheet1100AM, { as: 'image' })
-  preload(sheet1105AM, { as: 'image' })
-  preload(sheet1130AM, { as: 'image' })
-  preload(sheet100AND115PM, { as: 'image' })
-  preload(sheet200PM, { as: 'image' })
+  // Start with two sheets and fetch upcoming stages as the visitor scrolls.
+  for (const { id } of eventTimelineData.slice(Math.max(0, stageIndex - 1), stageIndex + 3)) {
+    const sheet = stageSprites[id]?.sheet
+    if (sheet) preload(sheet, { as: 'image' })
+  }
 
   useLayoutEffect(() => {
     const stage = stageRef.current
@@ -183,8 +181,8 @@ export default function EventTimeline({ title = 'The Timeline', periodLabel = '2
   }, [duration])
 
   return (
-    <section id="timeline" aria-labelledby="event-timeline-title" className="w-full bg-brand-blue text-brand-white font-['Poster_Handjet',Handjet,sans-serif]">
-      <div ref={stageRef} className="bg-brand-blue motion-safe:flex motion-safe:min-h-svh motion-safe:items-center">
+    <section id="timeline" aria-labelledby="event-timeline-title" className="w-full text-brand-white font-['Poster_Handjet',Handjet,sans-serif]">
+      <div ref={stageRef} className="motion-safe:flex motion-safe:min-h-svh motion-safe:items-center">
         <div className="mx-auto grid w-full min-w-0 max-w-7xl px-4 py-12 sm:px-6 md:grid-cols-[minmax(0,13fr)_minmax(0,7fr)] md:items-center md:gap-8 lg:px-8">
           <div className="min-w-0 max-md:motion-reduce:contents">
             <h2 id="event-timeline-title" className="text-5xl font-bold leading-none uppercase text-brand-lime sm:text-7xl lg:text-8xl">
