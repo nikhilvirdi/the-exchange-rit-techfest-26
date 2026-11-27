@@ -636,7 +636,7 @@ export default function TeamLanyardRail({ items, label = "Team" }) {
   };
 
   const onPointerDown = (event) => {
-    if (event.button !== 0) return;
+    if (event.button !== 0 || !event.isPrimary || pointer.current.id >= 0) return;
     const hit = nearest(event.clientX, event.clientY);
     const now = performance.now();
     pendingOpen.current = -1;

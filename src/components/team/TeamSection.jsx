@@ -5,8 +5,8 @@ const team = [
   { name: 'Kaustubh Nadiger', year: 'III year' },
   { name: 'Kritagya Tak', year: 'III year' },
   { name: 'Harsh Raj', year: 'III year' },
-  { name: 'Preksha Raj', year: 'II year' },
   { name: 'Ruhaan Narang', year: 'II year' },
+  { name: 'Preksha Raj', year: 'II year' },
   { name: 'Ruchitha Prakash', year: 'II year' },
 ]
 

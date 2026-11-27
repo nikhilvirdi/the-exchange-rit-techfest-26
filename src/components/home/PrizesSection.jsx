@@ -31,11 +31,11 @@ export default function PrizesSection() {
   // The header uses 44px link targets, 1.5rem of vertical padding, and a 1px border.
   return (
     <section id="prizes" aria-labelledby="winners-heading" className="grid min-h-[calc(100dvh-1.5rem-45px)] w-full content-center">
-      <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <h2 id="winners-heading" className="mx-auto max-w-4xl text-balance text-center font-['Poster_Handjet'] text-4xl font-bold leading-none tracking-wide text-brand-lime sm:text-6xl lg:text-7xl">
+      <div className="mx-auto w-full max-w-7xl px-4 py-[min(3rem,6dvh)] sm:px-6 sm:py-[min(4rem,6dvh)] lg:px-8 lg:py-[min(5rem,6dvh)]">
+        <h1 id="winners-heading" className="mx-auto max-w-4xl text-balance text-center font-['Poster_Handjet'] text-4xl font-bold leading-none tracking-wide text-brand-lime sm:text-6xl lg:text-7xl">
           MEET OUR WINNERS
-        </h2>
-        <ul role="list" aria-label="Winners podium" className="mx-auto mt-16 grid max-w-2xl grid-cols-3 gap-2 sm:gap-4">
+        </h1>
+        <ul role="list" aria-label="Winners podium" className="mx-auto mt-22 grid max-w-2xl grid-cols-3 gap-2 sm:mt-24 sm:gap-4">
           {winners.map(({ id, rank, height, teamName, members }) => {
             const isCenter = id === 'center'
             const rise = `${riseTransition} ${isCenter ? 'motion-safe:delay-100' : ''}`
