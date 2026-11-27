@@ -25,15 +25,17 @@ if (typeof window !== 'undefined') {
 }
 
 const eventTimelineData = [
-  { id: 'step-1', time: '9:30 AM', content: 'Event kick off' },
-  { id: 'step-2', time: '9:40 AM', content: 'Problem statements released' },
-  { id: 'step-3', time: '10:00 AM', content: 'Phase 01: Build It starts' },
-  { id: 'step-4', time: '11:30 AM', content: 'Teams submit their repo' },
-  { id: 'step-5', time: '11:35 AM', content: 'Break starts, coordinators swap the repos' },
-  { id: 'step-6', time: '12:00 PM', content: 'Phase 02: Break It kicks off' },
-  { id: 'step-7', time: '1:30 PM', content: 'Teams submit their findings and refined repo' },
-  { id: 'step-8', time: '1:45 PM', content: 'Event concludes' },
-  { id: 'step-9', time: '2:00 PM', content: 'Results are announced' },
+  { id: 'step-1', time: '10:00 AM', content: 'Event Kickoff' },
+  { id: 'step-2', time: '10:15 AM', content: 'Problem Statements Released' },
+  { id: 'step-3', time: '10:30 AM', content: 'Phase 01: Build It Begins' },
+  { id: 'step-4', time: '11:30 AM', content: 'Evaluation 01 Begins' },
+  { id: 'step-5', time: '12:00 PM', content: 'Phase 01 Ends; Coordinators Exchange Repositories' },
+  { id: 'step-6', time: '1:30 PM', content: 'Phase 02: Break It Begins' },
+  { id: 'step-7', time: '2:30 PM', content: 'Evaluation 02 Begins' },
+  { id: 'step-8', time: '3:00 PM', content: 'Phase 02 Ends' },
+  { id: 'step-9', time: '3:10 PM', content: 'Evaluation 03 Begins for the Top 6 Teams' },
+  { id: 'step-10', time: '3:45 PM', content: 'Winners Announced' },
+  { id: 'step-11', time: '4:00 PM', content: 'Event Concludes' },
 ]
 
 const stageSprites = {
@@ -43,9 +45,11 @@ const stageSprites = {
   'step-4': { component: Sprite1100AM, sheet: sheet1100AM },
   'step-5': { component: Sprite1105AM, sheet: sheet1105AM },
   'step-6': { component: Sprite1130AM, sheet: sheet1130AM },
-  'step-7': { component: Sprite100AND115PM, sheet: sheet100AND115PM },
+  'step-7': { component: Sprite930AM, sheet: sheet930AM },
   'step-8': { component: Sprite100AND115PM, sheet: sheet100AND115PM },
-  'step-9': { component: Sprite200PM, sheet: sheet200PM },
+  'step-9': { component: Sprite910AM, sheet: sheet910AM },
+  'step-10': { component: Sprite200PM, sheet: sheet200PM },
+  'step-11': { component: Sprite100AND115PM, sheet: sheet100AND115PM },
 }
 const lastSpriteIndex = eventTimelineData.findLastIndex(({ id }) => Boolean(stageSprites[id]))
 
@@ -67,6 +71,7 @@ export default function EventTimeline({ title = 'The Timeline', periodLabel = '2
 
   useLayoutEffect(() => {
     const stage = stageRef.current
+    const section = stage.parentElement
     const viewport = viewportRef.current
     const track = trackRef.current
     const line = lineRef.current
@@ -99,14 +104,22 @@ export default function EventTimeline({ title = 'The Timeline', periodLabel = '2
 
     media.add('(prefers-reduced-motion: no-preference)', () => {
       const splits = []
-      const distance = () => track.offsetWidth - viewport.clientWidth
+      const lastEntry = entries.at(-1)
+      const centerOffset = entry => entry.offsetLeft + (entry.offsetWidth - viewport.clientWidth) / 2
+      const distance = () => Math.max(0, Math.ceil(centerOffset(lastEntry)))
+      // Keep the final card centered for a scroll interval before releasing the pin.
+      const pin = ScrollTrigger.create({
+        trigger: stage,
+        start: 'top top',
+        end: () => `+=${distance() + Math.max(lastEntry.offsetWidth, stage.clientHeight / 2)}`,
+        pin: true,
+      })
       const slide = gsap.timeline({
         defaults: { ease: 'none', duration: 1 },
         scrollTrigger: {
-          trigger: stage,
+          trigger: section,
           start: 'top top',
           end: () => `+=${distance()}`,
-          pin: true,
           scrub: true,
           invalidateOnRefresh: true,
         },
@@ -142,17 +155,12 @@ export default function EventTimeline({ title = 'The Timeline', periodLabel = '2
       }
 
       // Hand off when the next entry's center reaches the timeline viewport's center.
-      const centerScroll = entry => slide.scrollTrigger.start + entry.offsetLeft + (entry.offsetWidth - viewport.clientWidth) / 2
       function stageEnd(index) {
         const nextEntry = entries[index + 1]
         if (!nextEntry) {
-          return slide.scrollTrigger.end + spritePanel.getBoundingClientRect().bottom - stage.getBoundingClientRect().top
+          return pin.end + spritePanel.getBoundingClientRect().bottom - stage.getBoundingClientRect().top
         }
-        if (index === entries.length - 2) {
-          // The final entry stays near the right edge, so start its sprite before the pin releases.
-          return Math.min(centerScroll(nextEntry), slide.scrollTrigger.end - 96)
-        }
-        return centerScroll(nextEntry)
+        return slide.scrollTrigger.start + centerOffset(nextEntry)
       }
       watchSpriteStages({
         trigger: stage,

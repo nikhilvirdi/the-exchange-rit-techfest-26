@@ -10,7 +10,11 @@ export default function FooterSection() {
         </h2>
         <ul role="list" className="mt-8 grid grid-cols-6 items-center gap-x-4 gap-y-7 md:grid-cols-5 lg:gap-x-8">
           <li className="col-span-3 md:col-span-1">
-            <img src={ritLogo} alt="Ramaiah Institute of Technology" width={1009} height={314} className="mx-auto h-auto w-full max-w-52" />
+            <div className="mx-auto grid w-full max-w-52">
+              {/* Split the image along the transparent gap between the emblem and the wordmark. */}
+              <img src={ritLogo} alt="Ramaiah Institute of Technology" width={1009} height={314} className="col-start-1 row-start-1 h-auto w-full [clip-path:inset(0_73%_0_0)]" />
+              <img src={ritLogo} alt="" width={1009} height={314} className="pointer-events-none col-start-1 row-start-1 h-auto w-full brightness-0 invert [clip-path:inset(0_0_0_27%)]" />
+            </div>
           </li>
           <li className="col-span-3 md:col-span-1">
             <p className="mx-auto max-w-48 text-center font-['Geist',sans-serif] text-sm leading-snug font-semibold text-balance text-brand-white sm:text-base">

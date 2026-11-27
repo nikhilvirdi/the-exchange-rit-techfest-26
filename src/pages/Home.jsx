@@ -122,19 +122,30 @@ function Poster() {
   )
 }
 
+const heroLinks = [
+  { to: '/event-details', label: 'See Event Details' },
+  { to: '/people', label: 'Faces of The Exchange' },
+]
+
 export default function Home() {
   return (
-    <div className="relative grid h-full w-full grid-rows-1 items-center max-lg:[--cta-y:min(74%,calc(100%-min(40vw,24dvh)-2.75rem))] max-lg:landscape:[--cta-y:66%] lg:h-[min(56.25vw,100dvh)]">
+    <div className="relative grid h-full w-full grid-cols-1 grid-rows-[minmax(0,calc(var(--hero-link-y)-var(--link-row-height)/2))_auto_minmax(0,1fr)] items-center [--hero-link-y:var(--cta-y)] [--link-row-height:1.5rem] [&>section]:col-start-1 [&>section]:row-span-full max-lg:[--cta-y:min(74%,calc(100%-min(40vw,24dvh)-2.75rem))] max-lg:landscape:[--cta-y:66%] max-lg:landscape:[--hero-link-y:min(var(--cta-y),calc(76dvh-3.5rem))] lg:h-(--poster-height) lg:[--poster-height:min(56.25vw,100dvh)] lg:[--hero-link-y:63.5%] lg:[--link-row-height:max(1.5rem,calc(var(--poster-height)*0.038-1px))]">
       <Poster />
-      <Link
-        to="/event-details"
-        className="group absolute top-(--cta-y) right-[7%] z-50 inline-flex min-h-11 -translate-y-1/2 items-center gap-2 font-['Geologica',sans-serif] text-sm font-medium leading-tight text-brand-white text-shadow-md text-shadow-black/85 hover:text-brand-lime focus-visible:text-brand-lime focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-lime motion-safe:transition-colors sm:text-lg lg:top-[65%] lg:right-8 lg:text-xl xl:text-2xl"
+      <nav
+        aria-label="Event pages"
+        className="z-50 col-start-1 row-start-2 mr-[7%] grid justify-items-end gap-y-px justify-self-end whitespace-nowrap font-['Geologica',sans-serif] text-[0.8125rem] font-medium leading-tight text-brand-white text-shadow-md text-shadow-black/85 sm:text-base lg:mr-0 lg:ml-[82%] lg:justify-items-start lg:justify-self-start lg:text-[clamp(0.75rem,1.2vw,1.5rem)]"
       >
-        See Event Details
-        <span aria-hidden="true" className="motion-safe:transition-transform motion-safe:group-hover:translate-x-1">
-          →
-        </span>
-      </Link>
+        {heroLinks.map(({ to, label }) => (
+          <Link
+            key={to}
+            to={to}
+            className="group inline-flex min-h-(--link-row-height) items-center gap-2 hover:text-brand-lime focus-visible:text-brand-lime focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-lime motion-safe:transition-colors lg:last:ml-[0.75em]"
+          >
+            {label}
+            <span aria-hidden="true" className="motion-safe:transition-transform motion-safe:group-hover:translate-x-1">→</span>
+          </Link>
+        ))}
+      </nav>
     </div>
   )
 }
